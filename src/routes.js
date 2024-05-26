@@ -31,5 +31,13 @@ export const routes = [
 
             response.end(JSON.stringify(task));
         }
+    },
+    {
+        method: 'GET',
+        path: '/tasks',
+        handler: async (request, response) => {
+            const tasks = database.select(table);
+            response.end(JSON.stringify(tasks));
+        }
     }
 ];

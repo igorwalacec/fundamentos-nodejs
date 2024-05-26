@@ -32,4 +32,8 @@ export class Database {
         this.#persist();
         return data;
     }
+
+    select(table){
+        return this.#database[table] || [];
+    }
 }
