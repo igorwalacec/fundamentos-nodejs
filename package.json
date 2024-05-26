@@ -1,0 +1,13 @@
+{
+  "name": "fundamentos-nodejs",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "This repository contains source code for the first challenge of the NodeJs Fundamental module on Rocketseat.",
+  "main": "src/server.js",
+  "scripts": {
+    "dev" : "node --watch src/server.js"
+  },
+  "keywords": [],
+  "author": "Igor Cuevas",
+  "license": "ISC"
+}
