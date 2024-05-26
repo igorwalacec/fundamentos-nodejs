@@ -1,3 +1,5 @@
-# Desafio 01 - Fundamentos NodeJS
+# Challenge 01 – NodeJS Fundamentals
 
-Este repositorio contem o código referente ao primeiro desafio do módulo fundamentos NodeJS da Rocketseat.
+This repository contains source code for the first challenge of the NodeJs Fundamental module on Rocketseat.
+
+challenge link: <https://efficient-sloth-d85.notion.site/Desafio-01-2d48608f47644519a408b438b52d913f>
