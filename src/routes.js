@@ -52,6 +52,10 @@ export const routes = [
             const { id } = request.params;
             const { title, description } = request.body;
 
+            if (!title && !description) {
+                return res.writeHead(400).end(JSON.stringify({ message: 'Title or Description are required' }));
+              }
+
             const task = database.findById(table, id);
             if(!task) {
                 return response.writeHead(404).end(JSON.stringify({ message: 'Task not found' }));
