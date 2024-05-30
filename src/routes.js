@@ -30,7 +30,7 @@ export const routes = [
 
             database.insert(table, task);
 
-            response.end(JSON.stringify(task));
+            response.writeHead(201).end(JSON.stringify(task));
         }
     },
     {
@@ -70,7 +70,7 @@ export const routes = [
 
             database.update(table, id, updatedTask);
 
-            response.end(JSON.stringify(updatedTask));
+            response.writeHead(204).end();
         }
     },
     {
