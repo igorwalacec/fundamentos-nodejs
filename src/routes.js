@@ -68,5 +68,22 @@ export const routes = [
 
             response.end(JSON.stringify(updatedTask));
         }
+    },
+    {
+        method: 'DELETE',
+        path: buildRoutePath('/tasks/:id'),
+        handler: async (request, response) => {
+            const { id } = request.params;
+
+            const task = database.findById(table, id);
+            if(!task) {
+                return response.writeHead(404).end(JSON.stringify({ message: 'Task not found' }));
+            }
+
+            database.delete(table, id);
+
+            response.writeHead(204).end();
+        }
     }
 ];
+

@@ -59,4 +59,15 @@ export class Database {
         this.#persist();
         return this.#database[table][index];
     }
+
+    delete(table, id) {
+        const index = this.#database[table].findIndex(row => row.id === id);
+        if(index === -1) {
+            return false;
+        }
+
+        this.#database[table].splice(index, 1);
+        this.#persist();
+        return true;
+    }
 }
