@@ -5,9 +5,12 @@
   "description": "This repository contains source code for the first challenge of the NodeJs Fundamental module on Rocketseat.",
   "main": "src/server.js",
   "scripts": {
-    "dev" : "node --watch src/server.js"
+    "dev": "node --watch src/server.js"
   },
   "keywords": [],
   "author": "Igor Cuevas",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "csv-parse": "^5.5.6"
+  }
 }
