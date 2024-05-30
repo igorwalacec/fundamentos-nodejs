@@ -44,5 +44,29 @@ export const routes = [
             );            
             response.end(JSON.stringify(tasks));
         }
+    },
+    {
+        method: 'PUT',
+        path: buildRoutePath('/tasks/:id'),
+        handler: async (request, response) => {
+            const { id } = request.params;
+            const { title, description } = request.body;
+
+            const task = database.findById(table, id);
+            if(!task) {
+                return response.writeHead(404).end(JSON.stringify({ message: 'Task not found' }));
+            }
+
+            const updatedTask = {
+                ...task,
+                title: title || task.title,
+                description: description || task.description,                
+                updated_at: new Date().toISOString()
+            }
+
+            database.update(table, id, updatedTask);
+
+            response.end(JSON.stringify(updatedTask));
+        }
     }
 ];

@@ -44,4 +44,19 @@ export class Database {
         }
         return data;
     }
+
+    findById(table, id) {
+        return this.#database[table].find(row => row.id === id);
+    }
+
+    update(table, id, data) {
+        const index = this.#database[table].findIndex(row => row.id === id);
+        if(index === -1) {
+            return null;
+        }
+
+        this.#database[table][index] = { ...this.#database[table][index], ...data };
+        this.#persist();
+        return this.#database[table][index];
+    }
 }
