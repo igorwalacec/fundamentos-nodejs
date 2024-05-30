@@ -84,6 +84,28 @@ export const routes = [
 
             response.writeHead(204).end();
         }
+    },
+    {
+        method: 'PATCH',
+        path: buildRoutePath('/tasks/:id/completed'),
+        handler: async (request, response) => {
+            const { id } = request.params;
+
+            const task = database.findById(table, id);
+            if(!task) {
+                return response.writeHead(404).end(JSON.stringify({ message: 'Task not found' }));
+            }
+
+            const updatedTask = {
+                ...task,
+                completed_at: new Date().toISOString(),
+                updated_at: new Date().toISOString()
+            }
+
+            database.update(table, id, updatedTask);
+
+            response.writeHead(204).end();
+        }
     }
 ];
 
